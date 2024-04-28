@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://fbvwrjnqq32c"]
+
+[ext_resource type="Script" path="res://source/scene_managers/tcg_lobby.gd" id="1_4jw2t"]
+
+[node name="tcgLobby" type="HSplitContainer"]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 700
+script = ExtResource("1_4jw2t")
+
+[node name="Network" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerInfo" type="HSplitContainer" parent="Network"]
+layout_mode = 2
+split_offset = 175
+
+[node name="Attributes" type="VBoxContainer" parent="Network/PlayerInfo"]
+layout_mode = 2
+
+[node name="IdAttr" type="Label" parent="Network/PlayerInfo/Attributes"]
+layout_mode = 2
+text = "ID:
+"
+horizontal_alignment = 2
+
+[node name="PlayerNameAttr" type="Label" parent="Network/PlayerInfo/Attributes"]
+layout_mode = 2
+text = "Player Name:"
+horizontal_alignment = 2
+
+[node name="DeckNameAttr" type="Label" parent="Network/PlayerInfo/Attributes"]
+layout_mode = 2
+text = "Deck Name:"
+horizontal_alignment = 2
+
+[node name="Values" type="VBoxContainer" parent="Network/PlayerInfo"]
+layout_mode = 2
+
+[node name="IdDisplay" type="Label" parent="Network/PlayerInfo/Values"]
+layout_mode = 2
+text = "_none_
+"
+
+[node name="PlayerNameInput" type="LineEdit" parent="Network/PlayerInfo/Values"]
+layout_mode = 2
+placeholder_text = "input player name"
+
+[node name="DeckNameInput" type="LineEdit" parent="Network/PlayerInfo/Values"]
+layout_mode = 2
+placeholder_text = "input deck name"
+
+[node name="NetworkingButtons" type="Panel" parent="Network"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="InitButtons" type="HBoxContainer" parent="Network/NetworkingButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="HostBtn" type="Button" parent="Network/NetworkingButtons/InitButtons"]
+layout_mode = 2
+text = "Host Server"
+
+[node name="JoinBtn" type="Button" parent="Network/NetworkingButtons/InitButtons"]
+layout_mode = 2
+text = "Join Server"
+
+[node name="startBtn" type="Button" parent="Network/NetworkingButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+text = "Start Game"
+
+[node name="Debug" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Debug"]
+
+[node name="DebugConsole" type="VBoxContainer" parent="Debug"]
+layout_mode = 2

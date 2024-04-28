@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://byqr2nsp8klmq"]
+
+[ext_resource type="Script" path="res://source/tcgArena.gd" id="1_8a873"]
+[ext_resource type="Script" path="res://source/core/tcgPlayer.gd" id="2_4dhtk"]
+[ext_resource type="Texture2D" uid="uid://d0gmsuwy8886i" path="res://graphics/local_player_bg.png" id="2_ugcyu"]
+[ext_resource type="Texture2D" uid="uid://bxtrx1djwa43w" path="res://graphics/networkl_player_bg.png" id="3_qsxgs"]
+[ext_resource type="Texture2D" uid="uid://b2susxqey006r" path="res://icon.svg" id="4_7nbgh"]
+[ext_resource type="PackedScene" uid="uid://conqidkt381vm" path="res://scenes/main_menu.tscn" id="5_fmoga"]
+
+[node name="Arena" type="Panel"]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8a873")
+
+[node name="PlayerArea" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NetworkPlayer" type="Panel" parent="PlayerArea"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_4dhtk")
+
+[node name="background" type="Sprite2D" parent="PlayerArea/NetworkPlayer"]
+scale = Vector2(75.6863, 37.9771)
+texture = ExtResource("3_qsxgs")
+centered = false
+
+[node name="NetworkInfo" type="VBoxContainer" parent="PlayerArea/NetworkPlayer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="PeerID" type="Label" parent="PlayerArea/NetworkPlayer/NetworkInfo"]
+layout_mode = 2
+
+[node name="NetworkSide" type="Label" parent="PlayerArea/NetworkPlayer/NetworkInfo"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="PlayerArea/NetworkPlayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+
+[node name="LocalPlayer" type="Panel" parent="PlayerArea"]
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_4dhtk")
+
+[node name="background" type="Sprite2D" parent="PlayerArea/LocalPlayer"]
+texture_repeat = 2
+scale = Vector2(75.8276, 41.0012)
+texture = ExtResource("2_ugcyu")
+centered = false
+
+[node name="NetworkInfo" type="VBoxContainer" parent="PlayerArea/LocalPlayer"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 50.0
+
+[node name="PeerID" type="Label" parent="PlayerArea/LocalPlayer/NetworkInfo"]
+layout_mode = 2
+
+[node name="NetworkSide" type="Label" parent="PlayerArea/LocalPlayer/NetworkInfo"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="PlayerArea/LocalPlayer"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 1
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("4_7nbgh")
+alignment = 0
+
+[node name="Menu" parent="." instance=ExtResource("5_fmoga")]
+visible = false
+layout_mode = 1
+offset_left = 0.0
+offset_right = 0.0

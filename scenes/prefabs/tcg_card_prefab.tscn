@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://fsijdsmoyioc"]
+
+[ext_resource type="Script" path="res://source/core/tcg_card.gd" id="1_vlgdv"]
+[ext_resource type="Texture2D" uid="uid://b2susxqey006r" path="res://icon.svg" id="2_2wy3q"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mvkxl"]
+
+[sub_resource type="Gradient" id="Gradient_vylhm"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lo2yi"]
+gradient = SubResource("Gradient_vylhm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynth"]
+size = Vector2(5, 8.17435)
+
+[node name="tcgCard" type="CharacterBody2D"]
+top_level = true
+scale = Vector2(27, 27)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_vlgdv")
+
+[node name="Face" type="MeshInstance2D" parent="."]
+rotation = 3.14159
+scale = Vector2(25, 64)
+mesh = SubResource("QuadMesh_mvkxl")
+texture = ExtResource("2_2wy3q")
+
+[node name="Back" type="MeshInstance2D" parent="."]
+rotation = 3.14159
+scale = Vector2(25, 64)
+mesh = SubResource("QuadMesh_mvkxl")
+texture = SubResource("GradientTexture1D_lo2yi")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.30968e-07)
+shape = SubResource("RectangleShape2D_oynth")
