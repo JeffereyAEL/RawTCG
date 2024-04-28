@@ -1,0 +1,5 @@
+res://scenes/levels/tcg_arena.tscn
+res://graphics/shaders/canvas_items/default_gui.tres
+res://scenes/prefabs/tcg_card_prefab.tscn
+res://source/core/tcg_card.gd
+res://source/scene_managers/tcg_arena.gd
